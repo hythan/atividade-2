@@ -18,6 +18,7 @@ import java.util.Set;
 public class EventLocation {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "data_inicio")

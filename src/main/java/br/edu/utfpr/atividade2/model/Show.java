@@ -15,6 +15,7 @@ import java.util.Date;
 public class Show {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "data")
