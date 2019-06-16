@@ -1,6 +1,7 @@
 package br.edu.utfpr.atividade2.service;
 
 import br.edu.utfpr.atividade2.model.OrderTicket;
+import br.edu.utfpr.atividade2.model.Show;
 import br.edu.utfpr.atividade2.model.User;
 import br.edu.utfpr.atividade2.model.dto.UserDTO;
 import br.edu.utfpr.atividade2.model.repository.OrderTicketRepository;
@@ -74,5 +75,9 @@ public class OrderTicketService {
 
     public List<User> getAllUserByShowId(Long id){
         return orderTicketRepository.getAllUserByShow(id);
+    }
+
+    public Iterable<Show> getShowsWithUsersBetween3And5() {
+        return orderTicketRepository.getShowsWithUsersBetween3And5();
     }
 }

@@ -38,6 +38,12 @@ public class ShowController {
         return ResponseEntity.status(HttpStatus.OK).body(shows);
     }
 
+    @GetMapping("/3-e-5")
+    public ResponseEntity<Iterable<Show>> getShowsWithUsersBetween3And5(){
+        Iterable<Show> shows = orderTicketService.getShowsWithUsersBetween3And5();
+        return ResponseEntity.status(HttpStatus.OK).body(shows);
+    }
+
     @GetMapping("{id}")
     public ResponseEntity<Iterable<User>> findAllByName(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.OK).body(orderTicketService.getAllUserByShowId(id));

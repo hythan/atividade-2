@@ -24,7 +24,6 @@ public class Atividade2Application {
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
 		    showService.init();
-            System.out.println("CHEGOO!");
 		    orderTicketService.init();
 		};
 	}
