@@ -3,7 +3,6 @@ package br.edu.utfpr.atividade2.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -27,9 +26,10 @@ public class Show {
     @ManyToOne
     private EventLocation eventLocation;
 
-    public Show(Long id, Date date, String band) {
+    public Show(Long id, Date date, String band, EventLocation eventLocation) {
         this.id = id;
         this.date = date;
         this.band = band;
+        this.eventLocation = eventLocation;
     }
 }

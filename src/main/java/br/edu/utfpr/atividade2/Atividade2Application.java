@@ -9,10 +9,17 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class Atividade2Application {
+	@Autowired
+	ShowService showService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Atividade2Application.class, args);
 	}
 
-
+	@Bean
+	public CommandLineRunner commandLineRunner() {
+		return args -> {
+			showService.init();
+		};
+	}
 }

@@ -1,5 +1,6 @@
 package br.edu.utfpr.atividade2.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -14,11 +15,17 @@ import java.util.Set;
 @Data
 @ToString
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class EventLocation {
 
+    public EventLocation(Date startDate, Date endDate, String city) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.city = city;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "data_inicio")
@@ -29,8 +36,4 @@ public class EventLocation {
 
     @Column(name = "cidade")
     private String city;
-
-    @OneToMany
-    private List<Show> shows;
-
 }
