@@ -2,6 +2,7 @@ package br.edu.utfpr.atividade2.service;
 
 import br.edu.utfpr.atividade2.model.OrderTicket;
 import br.edu.utfpr.atividade2.model.User;
+import br.edu.utfpr.atividade2.model.dto.UserDTO;
 import br.edu.utfpr.atividade2.model.repository.OrderTicketRepository;
 import br.edu.utfpr.atividade2.model.repository.ShowRepository;
 import br.edu.utfpr.atividade2.model.repository.UserRepository;
@@ -56,8 +57,15 @@ public class OrderTicketService {
         orderTicketRepository.saveAll(orderTickets);
     }
 
-    public User getMajorDonationValue(){
-        return orderTicketRepository.getUserMajorValueDonation(new Sort(Sort.Direction.DESC,"donationValue")).get(0).getUser();
+    public UserDTO getMajorDonationValue(){
+        OrderTicket orderTicket =  orderTicketRepository.getUserMajorValueDonation(new Sort(Sort.Direction.DESC,"donationValue")).get(0);
+        User user =  orderTicketRepository.getUserMajorValueDonation(new Sort(Sort.Direction.DESC,"donationValue")).get(0).getUser();
+        UserDTO userDTO =  new UserDTO(
+                user.getName(),
+                orderTicket.getQuantity(),
+                orderTicket.getDonationValue()
+                );
+        return userDTO;
     }
 
 }

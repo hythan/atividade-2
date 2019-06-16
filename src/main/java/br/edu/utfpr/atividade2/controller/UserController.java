@@ -2,6 +2,7 @@ package br.edu.utfpr.atividade2.controller;
 
 import br.edu.utfpr.atividade2.model.OrderTicket;
 import br.edu.utfpr.atividade2.model.User;
+import br.edu.utfpr.atividade2.model.dto.UserDTO;
 import br.edu.utfpr.atividade2.service.OrderTicketService;
 import br.edu.utfpr.atividade2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class UserController {
     }
 
     @GetMapping("/maior-doacao")
-    public ResponseEntity<User> getUserMajorValue(){
+    public ResponseEntity<UserDTO> getUserMajorValue(){
 
         return ResponseEntity.status(HttpStatus.OK).body(orderTicketService.getMajorDonationValue());
     }
