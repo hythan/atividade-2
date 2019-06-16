@@ -20,9 +20,15 @@ public class ShowController {
     @Autowired
     ShowService showService;
 
-    @GetMapping
+    @GetMapping("/guarapuava")
     public ResponseEntity<Iterable<Show>> findAllInGuarapuava(){
         Iterable<Show> shows = showService.findAllInGuarapuava();
+        return ResponseEntity.status(HttpStatus.OK).body(shows);
+    }
+
+    @GetMapping
+    public ResponseEntity<Iterable<Show>> all(){
+        Iterable<Show> shows = showService.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(shows);
     }
 }

@@ -52,6 +52,10 @@ public class ShowService {
         showRepository.saveAll(shows);
     }
 
+    public List<Show> findAll() {
+        return showRepository.findAll();
+    }
+
     public List<Show> findAllInGuarapuava() {
         Show show = new Show();
         EventLocation eventLocation = eventLocationRepository.findByCity("Guarapuava");
