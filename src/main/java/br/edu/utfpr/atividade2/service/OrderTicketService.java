@@ -45,7 +45,7 @@ public class OrderTicketService {
         OrderTicket orderTicket4 = new OrderTicket(1,
                 3000L,
                 userRepository.findById(3L).get(),
-                showRepository.getOne(1L));
+                showRepository.getOne(2L));
 
         ArrayList<OrderTicket> orderTickets = new ArrayList<>();
         orderTickets.add(orderTicket);
@@ -70,5 +70,9 @@ public class OrderTicketService {
 
     public Iterable<OrderTicket> findAllByUserId(Long user_id) {
         return orderTicketRepository.findByUserId(user_id);
+    }
+
+    public List<User> getAllUserByShowId(Long id){
+        return orderTicketRepository.getAllUserByShow(id);
     }
 }
