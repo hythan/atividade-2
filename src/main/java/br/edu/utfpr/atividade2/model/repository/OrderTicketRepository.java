@@ -15,4 +15,6 @@ public interface OrderTicketRepository extends JpaRepository<OrderTicket, Long>{
     @Query("select t from OrderTicket t")
     List<OrderTicket> getUserMajorValueDonation(Sort sort);
 
+    List<OrderTicket> findByUserId(Long userId);
+
 }

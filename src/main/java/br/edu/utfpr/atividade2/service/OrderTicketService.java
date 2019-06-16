@@ -60,4 +60,7 @@ public class OrderTicketService {
         return orderTicketRepository.getUserMajorValueDonation(new Sort(Sort.Direction.DESC,"donationValue")).get(0).getUser();
     }
 
+    public Iterable<OrderTicket> findAllByUserId(Long user_id) {
+        return orderTicketRepository.findByUserId(user_id);
+    }
 }
