@@ -1,6 +1,6 @@
 package br.edu.utfpr.atividade2.model.repository;
 
-import br.edu.utfpr.atividade2.model.User;
+import br.edu.utfpr.atividade2.model.OrderTicket;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,12 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface OrderTicketRepository extends JpaRepository<OrderTicket, Long>{
 
-    @Query("select u from User u where u.name like ?1%")
-    List<User> findByNameStartsWith(String name,Sort sort);
 
+    @Query("select t from OrderTicket t")
+    List<OrderTicket> getUserMajorValueDonation(Sort sort);
 
 }

@@ -1,5 +1,6 @@
 package br.edu.utfpr.atividade2;
 
+import br.edu.utfpr.atividade2.service.OrderTicketService;
 import br.edu.utfpr.atividade2.service.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +13,9 @@ public class Atividade2Application {
 	@Autowired
 	ShowService showService;
 
+	@Autowired
+	OrderTicketService orderTicketService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(Atividade2Application.class, args);
 	}
@@ -19,7 +23,9 @@ public class Atividade2Application {
 	@Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
-			showService.init();
+		    showService.init();
+            System.out.println("CHEGOO!");
+		    orderTicketService.init();
 		};
 	}
 }

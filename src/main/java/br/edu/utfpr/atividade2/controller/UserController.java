@@ -1,6 +1,8 @@
 package br.edu.utfpr.atividade2.controller;
 
+import br.edu.utfpr.atividade2.model.OrderTicket;
 import br.edu.utfpr.atividade2.model.User;
+import br.edu.utfpr.atividade2.service.OrderTicketService;
 import br.edu.utfpr.atividade2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    OrderTicketService orderTicketService;
+
     @GetMapping
     public ResponseEntity<Iterable<User>> all(){
         Iterable<User> users = userService.findAll();
@@ -28,5 +33,11 @@ public class UserController {
     @GetMapping("/{name}")
     public ResponseEntity<Iterable<User>> findAllByName(@PathVariable("name") String name){
         return ResponseEntity.status(HttpStatus.OK).body(userService.findByFirstName(name));
+    }
+
+    @GetMapping("/maior-doacao")
+    public ResponseEntity<User> getUserMajorValue(){
+
+        return ResponseEntity.status(HttpStatus.OK).body(orderTicketService.getMajorDonationValue());
     }
 }
