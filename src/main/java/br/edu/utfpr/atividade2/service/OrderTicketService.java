@@ -59,7 +59,7 @@ public class OrderTicketService {
 
     public UserDTO getMajorDonationValue(){
         OrderTicket orderTicket =  orderTicketRepository.getUserMajorValueDonation(new Sort(Sort.Direction.DESC,"donationValue")).get(0);
-        User user =  orderTicketRepository.getUserMajorValueDonation(new Sort(Sort.Direction.DESC,"donationValue")).get(0).getUser();
+        User user =  orderTicket.getUser();
         UserDTO userDTO =  new UserDTO(
                 user.getName(),
                 orderTicket.getQuantity(),
